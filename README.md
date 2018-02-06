@@ -1,4 +1,4 @@
-# SE18-G6
+# SE18-G4
 [![GitHub commits](https://img.shields.io/badge/Tex%20Live-2017-yellowgreen.svg)](tug.org/texlive/)
 
 ### Installation (TeX Live)
@@ -16,6 +16,6 @@ in a shell or on the windows commandline, run the following command:
 
 `/path/to/repo/xelatex main.tex`
 
-Or use your favourite TeX editor, we use [Atom](github.com/atom/atom/releases/tag/v1.16.0) with [LaTeX](atom.io/packages/latex), [Language-LaTeX](atom.io/packages/language-latex) and [LaTeX-autocomplete](atom.io/packages/latex-autocomplete) packages installed.
+Or use your favourite TeX editor, we use [vscode](https://code.visualstudio.com/) with [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) package installed.
 
 Other options are plenty, such as [TeX Studio](texstudio.sourceforge.net/) or check out [this page](http://alternativeto.net/software/latex/) for other alternatives (scroll down on the page).

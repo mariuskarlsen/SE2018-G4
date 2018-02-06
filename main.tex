@@ -1,0 +1,103 @@
+\documentclass[11pt, twoside, openright]{report}
+    % Alle pakkene kan leses om ved å google "CTAN PAKKENAVN".
+    \usepackage[main=UKenglish, norsk, nynorsk]{babel} % Språkpakke
+    \usepackage{microcode} % Muligens den beste pakken på markedet! Deaktiver den for å se hva som skjer :)
+    \usepackage{ifthen, xkeyval, xparse, tikz, calc} % Noen nyttepakker som kreves av andre pakker.
+    \usepackage{pdfpages, fancyhdr, caption, lipsum} % Importere pdf-er, bedre header og footer, caption-addon, lipsum generator(drafting).
+    \usepackage[autostyle=false,norwegian=guillemets]{csquotes} % Setter riktige quotes.
+    \usepackage{enumitem, multirow, multicol, longtable} % Liste, multirow for tabell, multicol for paragrafer, tabelpakke.
+    \usepackage{booktabs, listings} % bedre kontrol på tabeller, gir mulighet for kodeeksempler.
+    \usepackage{colortbl} % laster inn farger (Den laster også in xcolor- pakken automagisk)
+    \usepackage[super]{nth} % Oh yes it can!
+    \usepackage{makeidx} % For å generere en index
+
+    % Drafting packages
+    \usepackage[colorinlistoftodos,disable]{todonotes} % todo for å jobbe med
+    \usepackage[nochapter, tocentry]{vhistory} % Versjonskontroll
+    %\usepackage{layout} % Denne gir deg en egen side som forteller deg om nåværende marginer osv.
+    % End drafting
+
+% DOCUMENT SETTINGS
+\addbibresource{reference.bib} % Denne forteller hvilke bibfil som skal benyttes (separer med komma).
+% Disse gjør table of contents, table of figures og table of tables til multikolonne (ser bedre ut).
+\renewcommand*{\multicolumntoc}{2}
+\renewcommand*{\multicolumnlof}{2}
+\renewcommand*{\multicolumnlot}{2}
+\graphicspath{{assets/images}{assets/appendices}} % Setter paths til bilder for enkelhetens skyld når dere skal inkludere disse.
+\newcounter{aCounterForSomething} % Dette er en variable (som kan kalles hva som helst) den vil telle opp hver gang den møtes i dokumentet.
+\pagestyle{empty} % Vi renser header og footer
+\pagenumbering{roman} % Denne setter sidetallvisning til romertall for frontmatter
+\makeindex % Genererer index.
+
+\begin{document}
+
+
+% FRONTMATTER
+    %------------------
+    \pagestyle{empty}
+    \pagenumbering{roman}
+        %\input{sections/front/frontpage.tex}
+    \cleardoublepage
+    \setcounter{page}{3}
+
+        %\input{sections/front/abstract.tex}
+    \cleardoublepage
+    \pagestyle{plain}
+
+        %\input{sections/front/acknowledgements.tex}
+        \cleardoublepage
+        \setcounter{tocdepth}{1}
+            %\begin{multicol}{2}
+                \tableofcontents
+                \listoffigures
+                \listoftables
+                \lstlistoflistings
+            %\end{multicol}
+        \cleardoublepage
+        %\input{sections/front/authorship.tex}
+    %------------------
+
+
+% DRAFTINGMATTER (Bruk % forran for å deaktivere)
+    %------------------
+
+        %\layout %Printer layoutside for når dere skal justere margins osv (les om geometry pakken).
+        \clearpage
+        \input{versions} % Printer versjonshistorikk
+        \listoftodos % Printer en oversikt over alle kommentarer som er skrevet med \todo[]{}
+
+    %------------------ 
+
+% MAINMATTER
+    % --- mainmatter preamble ---
+    \cleardoublepage
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
+    \pagestyle{fancy}
+
+    %--- mainmatter content
+        %\input{section/main/introduction.tex}
+        %\input{section/main/literature.tex}
+        %\input{section/main/prototype.tex}
+        %\input{section/main/results.tex}
+        %\input{section/main/reflection.tex}
+        %\input{section/main/conclusion.tex}
+    %------------------
+
+% BACKMATTER
+    %------------------
+
+    \printbibliography
+    \addcontentsline{toc}{chapter}{Bibliography}
+    \cleardoublepage
+    %\printindex % Denne printer index på ord.
+    \addcontentsline{toc}{chapter}{Index}
+    \cleardoublepage
+    %\appendix
+    %\input{sections/back/appendices.tex}
+    %\cleardoublepage % HIOF Requirement
+    \cleardoublepage           % HIOF Requirement
+
+    %------------------
+
+\end{document}
